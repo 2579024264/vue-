@@ -1,0 +1,193 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+section{
+    position: relative;
+    width: 900px;
+    height: 70px;
+    margin: auto;
+}
+#m-top{
+    width: 900px;
+    height: 70px;
+    box-sizing: border-box;
+    background: #242424;
+    border-bottom: 1px solid #000;
+    position: absolute;
+    margin: 0px auto;
+}
+#m-top .logo{
+    display: block;
+    float:left;
+    width: 160px;
+    height: 70px;
+    background: url(https://s2.music.126.net/style/web2/img/frame/topbar.png?a5ef5d816c7c8bf7bbc42ec9676615c3) no-repeat 2px 0px;
+    padding-right: 20px;
+}
+#m-top .logo a{
+    float: left;
+    /* position: ; */
+    width: 120px;
+    height: 100%;
+    display: block;
+    text-decoration: none;
+    color: #333;
+    text-indent: -99999px;
+    line-height: 70px;
+}
+.m-nav{
+    float: left;
+    list-style: none;
+}
+.m-nav li,.m-nav li span,.m-nav a,.m-nav a em{
+    float: left;
+    height: 70px;
+    font-size: 14px;
+}
+.m-nav a:hover{
+    background-color: #000;
+    text-decoration: none;
+    color:#fff;
+}
+.m-nav a{
+    padding: 0 19px;
+    text-align: center;
+    line-height: 70px;
+    color:#ccc;
+}
+em{
+  font-style:normal;  
+}
+.m-tophead{
+    float: right;
+    height: 45px;
+    margin-top: 25px;
+    margin-left: 25px;
+}
+.m-tophead .link,.m-tophead .link:hover{
+    display: block;
+    width: 28px;
+    color: #787878;
+    /* text-decoration: none; */
+}
+.m-tophead:hover .link{
+    color: #999;
+}
+.m-topvd{
+    float: right;
+    width: 90px;
+    height: 28px;
+    margin: 20px 0 0 12px;
+    display: block;
+    border: 1px solid #4F4F4F;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #ccc;
+    text-align: center;
+    line-height: 28px;
+}
+.m-topvd:hover{
+    border:1px solid #ccc ;
+    color: #fff;
+}
+.srchbg{
+    float: right;
+    width: 150px;
+    height: 32px;
+    margin-top: 19px;
+    /* background-color: #fff; */
+    border-radius: 30px;
+    background:#fff url(https://s2.music.126.net/style/web2/img/frame/topbar.png?a5ef5d816c7c8bf7bbc42ec9676615c3) no-repeat -3px -98px;
+}
+.parent{
+    display: block;
+    margin: 7px 0 0 25px;
+    position: relative;
+}
+#srch{
+    color: #333;
+    line-height: 18px;
+    width: 90%;
+    border:0px;
+    background: transparent;
+    /* opacity: 1; */
+}
+#srch:focus{
+    outline:none;
+    outline-offset: 0px;
+}
+.srchbg .parent .ph{
+    display: block;
+    width: 90%;
+    color: #9b9b9b;
+    cursor: text;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.main{
+    width: 900px;
+    height: 500px;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-left: 20px solid #c20c0c;
+    /* border-bottom: 20px solid #c20c0c; */
+    border-right: 20px solid #c20c0c;
+}
+.music-list{
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    overflow-y: scroll;
+}
+.music-list li{
+    position: relative;
+    font-size: 1.5rem;
+    height: 70px;
+    border-bottom: 1px solid #999;
+    text-align: left;
+    line-height: 70px;
+    letter-spacing: 4px;
+    overflow: hidden;
+}
+.music-list .index{
+    font-size: 2rem;
+    margin-left:20px;
+    text-align: left ;
+    color: #999;
+}
+.music-list .play{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 15px;
+    background:transparent url(https://s2.music.126.net/style/web2/img/iconall.png?3737bbd7ed7592c1922e8d7c735c408a) no-repeat -1px -86px ;
+    outline: none;
+    text-decoration: none;
+}
+/* .music-list .play2{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 15px;
+    background:transparent url(https://s2.music.126.net/style/web2/img/iconall.png?3737bbd7ed7592c1922e8d7c735c408a) no-repeat -17px -58px ;
+    outline: none;
+    text-decoration: none;
+} */
+.audio{
+    width: 895px;
+    height: 50px;
+    display: block;
+    margin: 0px auto;
+    background-color: #c20c0c;
+    border-bottom: 2px solid #c20c0c;
+    border-left: 4px solid #c20c0c;
+    border-right: 1px solid #c20c0c;
+    outline: none;
+}

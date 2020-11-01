@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网易云播放器</title>
+    <link rel="stylesheet" href="./模板.css">
+    <script src="./vue.js"></script>
+    <script src="../axios/dist/axios.js"></script>
+</head>
+<body>
+    <div id="player">
+    <!-- 主体区域 -->
+        <section>
+            <div id="m-top">
+                <div class="weap f-cb">
+                    <h1 class="logo">
+                        <a href="#">网抑云音乐</a>
+                    </h1>
+                    <ul class="m-nav j-tflag">
+                        <li class="fst">
+                            <span>
+                                <a href="/#" hidefocus="true"  class="z-slt">
+                                    <em>发现音乐</em>
+                                </a>
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                <a href="#" hidefocus="true" >
+                                    <em>我的音乐</em>
+                                </a>
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                <a href="/#" hidefocus="true" >
+                                    <em>朋友</em>
+                                </a>
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                <a href="/#" hidefocus="true" >
+                                    <em>商城</em>
+                                </a>
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                <a href="/#" hidefocus="true" >
+                                    <em>音乐人</em>
+                                </a>
+                            </span>
+                        </li>
+                    </ul>
+                    <div class="m-tophead">
+                        <a href="#" class="link">登录</a>
+                    </div>
+                    <a href="#" class="m-topvd">创作者中心</a>
+                    <div class="srchbg">
+                        <span class="parent">
+                            <input type="text" id="srch" @keyup.enter="search" v-model="inputValue">
+                            <!-- <label class="ph" style>音频/视频/电台/用户</label> -->
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 列表区域 -->
+        <section class="main">
+            <ul class="music-list">
+                <li v-for="(item,index) in results" :key='index' class="music">
+                    <span class="index">{{index+1}}.</span>
+                    <a href="#" class="play" @click="change(item.id,index)"></a>
+                    <label>{{item.name}}</label>
+                </li>
+            </ul>
+        </section>
+        <!-- 音频标签 -->
+        <footer class="footer">
+            <audio :src="url" class="audio" autoplay controls></audio>
+        </footer>
+    </div>
+</body>
+<script>
+    let k=0;
+        let app=new Vue({
+            el:"#player",
+            data:{
+                inputValue:"",
+                results:[],
+                //歌曲播放地址
+                url:'',
+                
+            },
+            methods:{
+                //搜索
+                search(){
+                axios({
+                url:"https://autumnfish.cn/search",
+                method:"get",
+                params:{
+                    keywords:this.inputValue
+                }
+            
+            }).then((res)=>{
+            this.results=res.data.result.songs
+            // console.log(res);
+        })
+    },
+            //放歌
+                change(id,index){
+                    axios({
+                        url:"https://autumnfish.cn/song/url",
+                        method:"get",
+                        params:{
+                            id:id
+                        }
+                    }).then((res)=>{
+                        this.url=res.data.data[0].url
+                    })
+                    // let play=document.getElementsByClassName("play");
+                    // if(k%2==0){
+                    //     play.style.backgroundPosition=-1+"px"+" "+-86+"px";
+                    // }else{
+                    //     play.style.backgroundPosition=-17+"px"+" "+-58+"px";
+                    // }
+                    let play=document.getElementsByClassName("music-list")[0].children;
+                    for(let i=0;i<play.length;i++){
+                        play[i].getElementsByTagName("a")[0].style.backgroundPosition=-1+"px"+" "+-86+"px";
+                    }
+                    let a=play[index].getElementsByTagName("a")[0];
+                    a.style.backgroundPosition=-17+"px"+" "+-58+"px";
+                }
+}
+})
+
+</script>
+</html>
